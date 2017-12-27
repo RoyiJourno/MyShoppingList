@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MyShoppingList</string>
+    <string name="addnewshoping">רשימת קניות חדשה</string>
+    <string name="addprod">הוספת מוצר לרשימה</string>
 </resources>
