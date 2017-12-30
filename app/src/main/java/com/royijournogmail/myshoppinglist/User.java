@@ -5,14 +5,10 @@ package com.royijournogmail.myshoppinglist;
  */
 
 public class User {
-    String u_id;
-    String email;
-    String password;
     String name;
-    public User(String u_id, String email, String password, String name) {
-        this.u_id=u_id;
-        this.email = email;
-        this.password= password;
-        this.name= name;
+    Product[] listOfProduct;
+    public User(String u_id, String email, String password, String name,Product[] listOfProduct) {
+        this.name = name;
+        this.listOfProduct = listOfProduct;
     }
 }

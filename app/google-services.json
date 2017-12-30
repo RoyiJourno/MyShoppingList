@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "562222070219",
+    "firebase_url": "https://androidproj-46ae2.firebaseio.com",
+    "project_id": "androidproj-46ae2",
+    "storage_bucket": "androidproj-46ae2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562222070219:android:3039e1e09f0d6c45",
+        "android_client_info": {
+          "package_name": "com.royijournogmail.myshoppinglist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "562222070219-l18eqcu98vtc9qa7plqr19u8p88hdm46.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.royijournogmail.myshoppinglist",
+            "certificate_hash": "efd5bcb0605e79fc44d46d1267a0e8a38ffc3f11"
+          }
+        },
+        {
+          "client_id": "562222070219-m8v6pgsokm69bvfcivm9s0ovqudg4hhr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHoWSdPhbCW0e-e501ypaus9r869bkV_w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "562222070219-m8v6pgsokm69bvfcivm9s0ovqudg4hhr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
