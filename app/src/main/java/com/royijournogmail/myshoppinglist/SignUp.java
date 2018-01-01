@@ -15,6 +15,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUp extends AppCompatActivity {
@@ -31,7 +33,9 @@ public class SignUp extends AppCompatActivity {
                 EditText loginName = (EditText)findViewById(R.id.loginName);
                 EditText loginPass1 = (EditText)findViewById(R.id.loginPasswordWelcome);
                 EditText loginPass2 = (EditText)findViewById(R.id.loginPassword2);
+                EditText fullName = (EditText)findViewById(R.id.fullName);
 
+                final String fName = fullName.getText().toString();
                 String name = loginName.getText().toString();
                 String loginPassword1 = loginPass1.getText().toString();
                 String loginPassword2 = loginPass2.getText().toString();
@@ -45,6 +49,11 @@ public class SignUp extends AppCompatActivity {
                             progressDialog.dismiss();
                             if(task.isSuccessful()) {
                                 Toast.makeText(getApplicationContext(), "Registration successful", Toast.LENGTH_LONG).show();
+                                FirebaseAuth userInfo = FirebaseAuth.getInstance();
+                                String u_id = userInfo.getUid();
+                                User userInfoermation = new User(fName,null);
+                                DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
+                                dref.child(u_id).setValue(userInfoermation);
                                 Intent intent = new Intent(SignUp.this,MainActivity.class);
                                 startActivity(intent);
                             }

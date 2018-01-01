@@ -16,7 +16,7 @@ public class HomePage extends AppCompatActivity {
         TextView homeEmail = (TextView)findViewById(R.id.homeEmail);
         homeEmail.setText(getIntent().getExtras().getString("Email"));
 
-        final Button addProduct = (Button)findViewById(R.id.addProduct);
+        Button addProduct = (Button)findViewById(R.id.addProduct);
         Button chooseItem = (Button)findViewById(R.id.chooseItem);
         Button previousList = (Button)findViewById(R.id.previousList);
         Button statistic = (Button)findViewById(R.id.statistic);

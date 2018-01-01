@@ -7,8 +7,12 @@ package com.royijournogmail.myshoppinglist;
 public class User {
     String name;
     Product[] listOfProduct;
-    public User(String u_id, String email, String password, String name,Product[] listOfProduct) {
+    public User(String name,Product[] listOfProduct) {
         this.name = name;
+        this.listOfProduct = listOfProduct;
+    }
+
+    public void updateUser(Product[] listOfProduct){
         this.listOfProduct = listOfProduct;
     }
 }

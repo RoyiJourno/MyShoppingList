@@ -21,7 +21,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".SignUp" />
         <activity android:name=".HomePage" />
-        <activity android:name=".AddProduct"></activity>
+        <activity android:name=".AddProduct" />
+        <activity android:name=".AddItemToList"></activity>
     </application>
 
 </manifest>
