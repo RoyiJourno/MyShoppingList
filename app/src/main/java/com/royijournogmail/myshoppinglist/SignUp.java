@@ -51,7 +51,12 @@ public class SignUp extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Registration successful", Toast.LENGTH_LONG).show();
                                 FirebaseAuth userInfo = FirebaseAuth.getInstance();
                                 String u_id = userInfo.getUid();
-                                User userInfoermation = new User(fName,null);
+                                User userInfoermation = new User(fName);
+
+                                Product p = new Product("rice", null, "test"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+
                                 DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                                 dref.child(u_id).setValue(userInfoermation);
                                 Intent intent = new Intent(SignUp.this,MainActivity.class);
