@@ -2,4 +2,12 @@
     <string name="app_name">MyShoppingList</string>
     <string name="addnewshoping">רשימת קניות חדשה</string>
     <string name="addprod">הוספת מוצר לרשימה</string>
+    <string name="additemtoyourlist">Add Item To Your List</string>
+    <string name="name">Name:</string>
+    <string name="description">Description:</string>
+    <string name="nameoftheproduct">Name Of The Product</string>
+    <string name="descriptionontheproduct">Description On The Product</string>
+    <string name="add_product">Add Product</string>
+    <string name="amount">Amount:</string>
+    <string name="amountoftheproduct">Amount Of The Product</string>
 </resources>
