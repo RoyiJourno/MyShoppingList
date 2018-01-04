@@ -1,5 +1,6 @@
 package com.royijournogmail.myshoppinglist;
 
+import android.content.Intent;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -47,9 +48,6 @@ public class AddItemToList extends AppCompatActivity {
             @Override
 
             public void onClick(View v) {
-<<<<<<< HEAD
-
-=======
                 try {
                     EditText proName = findViewById(R.id.proName);
                     EditText proDesc = findViewById(R.id.proDesc);
@@ -62,16 +60,16 @@ public class AddItemToList extends AppCompatActivity {
 
 
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                final DatabaseReference ref = database.getReference();
+                final DatabaseReference ref = database.getReference().child(u_id);
 
 
                 // Attach a listener to read the data at our posts reference
                     
-                    ref.addValueEventListener(new ValueEventListener() {
+                    ref.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            Iterable<DataSnapshot> children = dataSnapshot.child(u_id).child("listOfProduct").getChildren();
-                            String u_name = dataSnapshot.getValue().toString();
+                            Iterable<DataSnapshot> children = dataSnapshot.child("listOfProduct").getChildren();
+                            String u_name = dataSnapshot.child("name").getValue().toString();
                             new_user[0]=new User(u_name);
 
                             for (DataSnapshot child : children)
@@ -88,41 +86,23 @@ public class AddItemToList extends AppCompatActivity {
                             new_user[0].updateProdToUser(p_new);
                             update_user();
  //                           DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
-
-
-
+                            startActivity(new Intent(AddItemToList.this,AddProduct.class));
                             }
-
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
                             System.out.println("The read failed: " + databaseError.getCode());
                         }
-
-
                 });
 
                      /*   value.listOfProduct.add(p);
                         DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                         dref.child(u_id).setValue(value);*/
->>>>>>> 7f4e98e890e842278374436ca9a7641579e9e74f
             }
             catch (Exception ex) {
                 Toast.makeText(getApplicationContext(),ex.getMessage().toString(), Toast.LENGTH_LONG).show();
                 ex.printStackTrace();
 
             }
-
-
-
-
-
-
-
-
-
-
-
-
             }
         });
     }
