@@ -47,6 +47,9 @@ public class AddItemToList extends AppCompatActivity {
             @Override
 
             public void onClick(View v) {
+<<<<<<< HEAD
+
+=======
                 try {
                     EditText proName = findViewById(R.id.proName);
                     EditText proDesc = findViewById(R.id.proDesc);
@@ -101,6 +104,7 @@ public class AddItemToList extends AppCompatActivity {
                      /*   value.listOfProduct.add(p);
                         DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                         dref.child(u_id).setValue(value);*/
+>>>>>>> 7f4e98e890e842278374436ca9a7641579e9e74f
             }
             catch (Exception ex) {
                 Toast.makeText(getApplicationContext(),ex.getMessage().toString(), Toast.LENGTH_LONG).show();
