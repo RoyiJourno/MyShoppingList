@@ -22,7 +22,11 @@
         <activity android:name=".SignUp" />
         <activity android:name=".HomePage" />
         <activity android:name=".AddProduct" />
-        <activity android:name=".AddItemToList"></activity>
+        <activity android:name=".AddItemToList" />
+        <activity
+            android:name=".listOfProduct"
+            android:label="@string/title_activity_list_of_product"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

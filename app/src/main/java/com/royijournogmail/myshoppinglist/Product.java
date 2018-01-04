@@ -14,5 +14,10 @@ public class Product {
         this.p_photoUrl = p_photoUrl;
         this.p_description = p_description;
     }
+
+    @Override
+    public String toString() {
+        return "Name: "+ this.p_name + "  |  Description:" + this.p_description ;
+    }
 }
 
