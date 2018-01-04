@@ -9,12 +9,17 @@ import java.util.ArrayList;
 public class User {
     public  String name;
     ArrayList<Product> listOfProduct;
+
     public User(String name) {
         this.name = name;
         this.listOfProduct = new ArrayList<Product>();
     }
+    public void update_name (String name)
+    {
+        this.name = name;
+    }
 
-  /*  public void updateUser(Product[] listOfProduct){
-        this.listOfProduct = listOfProduct;
-    } */
+   public void updateProdToUser(Product p){
+        this.listOfProduct.add(p);
+    }
 }

@@ -17,57 +17,87 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class AddItemToList extends AppCompatActivity {
-
+    final User[] new_user= new User [1];
+    void update_user()
+    {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference ref = database.getReference();
+        FirebaseAuth userInfo = FirebaseAuth.getInstance();
+        final String u_id = userInfo.getUid();
+        ref.child(u_id).setValue(new_user[0]);
+        Toast.makeText(getApplicationContext(), "good " , Toast.LENGTH_SHORT).show();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item_to_list);
 
-        EditText proName = findViewById(R.id.proName);
-        EditText proDesc = findViewById(R.id.proDesc);
 
 
-        final String productName = proName.getText().toString();
-        final String productDesc = proDesc.getText().toString();
+
+
+  //      final String[] u_name = new String[1];
 
 
         Button proAdd = findViewById(R.id.proAdd);
 
+
+
         proAdd.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View v) {
                 try {
-                    final Product p = new Product(productName, null, productDesc); // create product
+                    EditText proName = findViewById(R.id.proName);
+                    EditText proDesc = findViewById(R.id.proDesc);
+                    final String productName = proName.getText().toString();
+                    final String productDesc = proDesc.getText().toString();
+
+                FirebaseAuth userInfo = FirebaseAuth.getInstance();
+                  final String u_id = userInfo.getUid();
 
 
-//                FirebaseAuth userInfo = FirebaseAuth.getInstance();
-//                  final String u_id = userInfo.getUid();
 
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref = database.getReference();
-
+                final DatabaseReference ref = database.getReference();
 
 
                 // Attach a listener to read the data at our posts reference
-
-                ref.addValueEventListener(new ValueEventListener() {
+                    
+                    ref.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            Iterable<DataSnapshot> children = dataSnapshot.getChildren();
-                            for (DataSnapshot user :children ){
-                                User u = user.getValue(User.class);
-                                Toast.makeText(getApplicationContext(), "Value is: " + u.name, Toast.LENGTH_SHORT).show();
+                            Iterable<DataSnapshot> children = dataSnapshot.child(u_id).child("listOfProduct").getChildren();
+                            String u_name = dataSnapshot.getValue().toString();
+                            new_user[0]=new User(u_name);
+
+                            for (DataSnapshot child : children)
+                            {
+                                String name = child.child("p_name").getValue().toString();
+ //                               Toast.makeText(getApplicationContext(), "Value is: " +name, Toast.LENGTH_SHORT).show();
+                                String desc = child.child("p_description").getValue().toString();
+  //                              Toast.makeText(getApplicationContext(), "Value is: " +name, Toast.LENGTH_SHORT).show();
+                                Product p= new Product(name, null,desc);
+                               new_user[0].updateProdToUser(p);
+
                             }
+                             Product p_new = new Product(productName, null, productDesc); // create product
+                            new_user[0].updateProdToUser(p_new);
+                            update_user();
+ //                           DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
 
- //
 
-                        }
+
+                            }
 
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
                             System.out.println("The read failed: " + databaseError.getCode());
                         }
+
+
                 });
+
                      /*   value.listOfProduct.add(p);
                         DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                         dref.child(u_id).setValue(value);*/
@@ -77,6 +107,8 @@ public class AddItemToList extends AppCompatActivity {
                 ex.printStackTrace();
 
             }
+
+
 
 
 
