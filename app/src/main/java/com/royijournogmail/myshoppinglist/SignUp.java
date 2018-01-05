@@ -53,11 +53,11 @@ public class SignUp extends AppCompatActivity {
                                 String u_id = userInfo.getUid();
                                 User userInfoermation = new User(fName);
 
-                                Product p = new Product("rice", null, "test"); // create product
+                                Product p = new Product("tomato", null, "Choose the most beautiful"); // create product
                                 userInfoermation.listOfProduct.add(p);
-                                p = new Product("tometoo", null, "test"); // create product
+                                p = new Product("Cucumbers", null, " "); // create product
                                 userInfoermation.listOfProduct.add(p);
-                                p = new Product("milk", null, "test"); // create product
+                                p = new Product("milk", null, "Date is the farthest"); // create product
                                 userInfoermation.listOfProduct.add(p);
 
                                 DatabaseReference dref = FirebaseDatabase.getInstance().getReference();

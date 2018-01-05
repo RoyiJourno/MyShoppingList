@@ -16,15 +16,31 @@ public class HomePage extends AppCompatActivity {
         TextView homeEmail = (TextView)findViewById(R.id.homeEmail);
         homeEmail.setText(getIntent().getExtras().getString("Email"));
 
-        Button addProduct = (Button)findViewById(R.id.addProduct);
-        Button chooseItem = (Button)findViewById(R.id.chooseItem);
+        Button newList = (Button)findViewById(R.id.newList);
+        Button updateList = (Button)findViewById(R.id.updateList);
         Button previousList = (Button)findViewById(R.id.previousList);
         Button statistic = (Button)findViewById(R.id.statistic);
 
-        addProduct.setOnClickListener(new View.OnClickListener() {
+        newList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomePage.this,listOfProduct.class);
+                startActivity(intent);
+            }
+        });
+
+        updateList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomePage.this,updateList.class);
+                startActivity(intent);
+            }
+        });
+
+        previousList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomePage.this,previousLists.class);
                 startActivity(intent);
             }
         });

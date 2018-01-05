@@ -29,13 +29,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/addProduct"
+        android:id="@+id/newList"
         style="@android:style/Widget.Button"
         android:layout_width="76dp"
         android:layout_height="64dp"
         android:background="@drawable/ic_launcher_foreground"
-        android:text="Add Product"
-        android:textSize="18sp"
+        android:text="רשימת קניות חדשה"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView1"
         app:layout_constraintEnd_toEndOf="@+id/imageView1"
         app:layout_constraintStart_toStartOf="@+id/imageView1"
@@ -52,13 +52,13 @@
         app:srcCompat="@drawable/button1" />
 
     <Button
-        android:id="@+id/chooseItem"
+        android:id="@+id/updateList"
         style="@android:style/Widget.Button"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:background="@drawable/ic_launcher_foreground"
-        android:text="Choose Items"
-        android:textSize="18sp"
+        android:text="עדכון רשימת קניות"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="@+id/statistic"
         app:layout_constraintStart_toStartOf="@+id/statistic"

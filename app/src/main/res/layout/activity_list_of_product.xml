@@ -7,7 +7,7 @@
     android:background="#fff68f"
     tools:context="com.royijournogmail.myshoppinglist.listOfProduct">
     <ListView
-        android:id="@+id/listView1"
+        android:id="@+id/lv"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="#fff68f"
@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.179"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listView1" />
+        app:layout_constraintTop_toBottomOf="@+id/lv" />
 
     <Button
         android:id="@+id/createList"
@@ -42,6 +42,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.792"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listView1"
+        app:layout_constraintTop_toBottomOf="@+id/lv"
         app:layout_constraintVertical_bias="1.0" />
 </android.support.constraint.ConstraintLayout>

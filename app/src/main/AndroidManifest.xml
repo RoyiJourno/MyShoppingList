@@ -27,6 +27,9 @@
             android:name=".listOfProduct"
             android:label="@string/title_activity_list_of_product"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".updateList" />
+        <activity android:name=".previousLists" />
+        <activity android:name=".ShowShoppingList" />
     </application>
 
 </manifest>
