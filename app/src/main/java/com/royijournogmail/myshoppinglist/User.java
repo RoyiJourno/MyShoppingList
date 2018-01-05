@@ -25,4 +25,8 @@ public class User {
    public void updateProdToUser(Product p){
         this.listOfProduct.add(p);
     }
+
+    public void updateListToUser(ListForUser l){
+        this.listOfLists.add(l);
+    }
 }

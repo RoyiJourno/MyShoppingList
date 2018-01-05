@@ -71,7 +71,7 @@ public class AddItemToList extends AppCompatActivity {
                             Iterable<DataSnapshot> children = dataSnapshot.child("listOfProduct").getChildren();
                             String u_name = dataSnapshot.child("name").getValue().toString();
                             new_user[0]=new User(u_name);
-
+                            ///bring product
                             for (DataSnapshot child : children)
                             {
                                 String name = child.child("p_name").getValue().toString();
@@ -84,6 +84,27 @@ public class AddItemToList extends AppCompatActivity {
                             }
                              Product p_new = new Product(productName, null, productDesc); // create product
                             new_user[0].updateProdToUser(p_new);
+                            //////////bring lists
+                            children = dataSnapshot.child("listOfLists").getChildren();
+                            for (DataSnapshot child : children) //list of lists
+                            {
+                                Iterable<DataSnapshot> children2 = child.child("listOfProduct").getChildren();
+                                String name_l = child.child("name").getValue().toString();
+                                ListForUser list_for_user=new ListForUser(name_l);
+                                for (DataSnapshot child2 : children2) //products
+                                {
+                                    String name_p = child2.child("p_name").getValue().toString();
+                                    String desc = child2.child("p_description").getValue().toString();
+                                    Product p= new Product(name_p, null,desc);
+                                    list_for_user.updateProdToList(p);
+
+                                }
+                                new_user[0].updateListToUser(list_for_user);
+
+                            }
+
+
+
                             update_user();
  //                           DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                             startActivity(new Intent(AddItemToList.this,listOfProduct.class));
