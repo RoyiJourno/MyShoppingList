@@ -107,7 +107,7 @@ public class AddItemToList extends AppCompatActivity {
 
                             update_user();
  //                           DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
-                            startActivity(new Intent(AddItemToList.this,listOfProduct.class));
+                            startActivity(new Intent(AddItemToList.this,updateList.class));
                             }
                         @Override
                         public void onCancelled(DatabaseError databaseError) {

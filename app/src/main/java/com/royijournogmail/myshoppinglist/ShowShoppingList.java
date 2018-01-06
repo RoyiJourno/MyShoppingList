@@ -3,7 +3,10 @@ package com.royijournogmail.myshoppinglist;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -106,7 +109,6 @@ public class ShowShoppingList extends AppCompatActivity {
 
             }
         });
-
     }
 
     private ArrayList<Model> getModel(){

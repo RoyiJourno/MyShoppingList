@@ -30,6 +30,14 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#000" />
 
+        <Button
+            android:id="@+id/takeIt"
+            style="@android:style/Widget.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Take It"
+            android:layout_marginLeft="90dp"/>
+
     </LinearLayout>
 
     <LinearLayout

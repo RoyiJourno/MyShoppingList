@@ -1,5 +1,6 @@
 package com.royijournogmail.myshoppinglist;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,10 +30,6 @@ public class updateList extends AppCompatActivity {
         customAdapter = new CustomAdapter_update(this);
         lv = (ListView) findViewById(R.id.lv);
 
-
-
-
-
         //bring products
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final FirebaseAuth userInfo = FirebaseAuth.getInstance();
@@ -40,6 +37,7 @@ public class updateList extends AppCompatActivity {
         DatabaseReference ref = database.getReference().child(u_id);
 
         ref.addListenerForSingleValueEvent(new ValueEventListener(){
+
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String u_name = dataSnapshot.child("name").getValue().toString();
@@ -57,9 +55,6 @@ public class updateList extends AppCompatActivity {
                     new_user[0].updateProdToUser(p);
                     ////////////////////listview
                     prodList.add(p);
-
-
-
                 }
                 //listview
                 modelArrayList = getModel();
@@ -82,8 +77,8 @@ public class updateList extends AppCompatActivity {
 
                     }
                     new_user[0].updateListToUser(list_for_user);
-
                 }
+                customAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -92,6 +87,23 @@ public class updateList extends AppCompatActivity {
             }
         });
 
+        (findViewById(R.id.refrash)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recreate();
+            }
+        });
+
+        (findViewById(R.id.addItem2)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(updateList.this,AddItemToList.class));
+            }
+        });
+    }
+
+    public void updateItemInList(){
+        recreate();
     }
 
     private ArrayList<Model> getModel(){

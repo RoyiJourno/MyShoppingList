@@ -2,6 +2,7 @@ package com.royijournogmail.myshoppinglist;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class listOfProduct extends AppCompatActivity   {
@@ -24,6 +28,7 @@ public class listOfProduct extends AppCompatActivity   {
     public static ArrayList<Model> modelArrayList;
     private CustomAdapter customAdapter;
     ArrayList<Product> prodList=new ArrayList<Product>();
+    private static long amountOfChildren = 0;
 
     ///
     @Override
@@ -49,6 +54,8 @@ public class listOfProduct extends AppCompatActivity   {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String u_name = dataSnapshot.child("name").getValue().toString();
                 new_user[0] = new User(u_name);
+
+                amountOfChildren = dataSnapshot.child("listOfLists").getChildrenCount();
 
                 Iterable<DataSnapshot> children = dataSnapshot.child("listOfProduct").getChildren();
 
@@ -122,7 +129,8 @@ public class listOfProduct extends AppCompatActivity   {
                 //              builder.show();
 
                 ////end dialog box
-                name_for_list[0] = "my list"; ////////////////// delete when dialog box
+                String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new java.util.Date());
+                name_for_list[0] = date; ////////////////// delete when dialog box
                 ListForUser list_for_user = new ListForUser(name_for_list[0]); //new list
                 int count = 0;
                 for (Model iter : modelArrayList) {
@@ -137,10 +145,12 @@ public class listOfProduct extends AppCompatActivity   {
                     new_user[0].updateListToUser(list_for_user);
                     update_user();
                 }
-
-
-
-
+                //go to the last List
+                SharedPreferences sp = getSharedPreferences("myshoppinglist", 0);
+                final SharedPreferences.Editor sedt = sp.edit();
+                sedt.putString("list_id",String.valueOf(amountOfChildren));
+                sedt.commit();
+                startActivity(new Intent(listOfProduct.this,ShowShoppingList.class));
             }
         });
 

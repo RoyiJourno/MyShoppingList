@@ -6,6 +6,7 @@ package com.royijournogmail.myshoppinglist;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.text.style.BackgroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +14,17 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class CustomAdapter_shopping  extends BaseAdapter {
 
     private Context context;
+
 
 
     public CustomAdapter_shopping(Context context) {
@@ -61,6 +70,7 @@ public class CustomAdapter_shopping  extends BaseAdapter {
             holder.tvProduct = (TextView) convertView.findViewById(R.id.animal);
             holder.tvnumber = (TextView) convertView.findViewById(R.id.number);
             holder.tvDesc = (TextView) convertView.findViewById(R.id.desc);
+            holder.takeIt = (Button) convertView.findViewById(R.id.takeIt);
 
             convertView.setTag(holder);
         }else {
@@ -71,6 +81,17 @@ public class CustomAdapter_shopping  extends BaseAdapter {
         holder.tvProduct.setText(ShowShoppingList.modelArrayList.get(position).getProduct());
         holder.tvnumber.setText(String.valueOf(ShowShoppingList.modelArrayList.get(position).getNumber()));
         holder.tvDesc.setText(ShowShoppingList.modelArrayList.get(position).getproductDesc());
+
+
+        //mark selected item in current list.
+        holder.takeIt.setTag(R.integer.btn_plus_view,convertView);
+        holder.takeIt.setTag(R.integer.btn_plus_pos,position);
+        holder.takeIt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         if (ShowShoppingList.modelArrayList.get(position).getPurchased().equals("true"))
         {
@@ -86,6 +107,7 @@ public class CustomAdapter_shopping  extends BaseAdapter {
 
         private TextView tvProduct, tvnumber;
         private  TextView tvDesc;
+        private Button takeIt;
 
     }
 
