@@ -31,94 +31,64 @@
     <Button
         android:id="@+id/newList"
         style="@android:style/Widget.Button"
-        android:layout_width="76dp"
-        android:layout_height="64dp"
-        android:background="@drawable/ic_launcher_foreground"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/buttonsqure"
         android:text="רשימת קניות חדשה"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView1"
-        app:layout_constraintEnd_toEndOf="@+id/imageView1"
-        app:layout_constraintStart_toStartOf="@+id/imageView1"
-        app:layout_constraintTop_toTopOf="@+id/imageView1" />
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:srcCompat="@drawable/button1" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeWelcom" />
 
     <Button
         android:id="@+id/updateList"
         style="@android:style/Widget.Button"
         android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="@drawable/ic_launcher_foreground"
+        android:layout_height="50dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/buttonsqure"
         android:text="עדכון רשימת קניות"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="@+id/statistic"
-        app:layout_constraintStart_toStartOf="@+id/statistic"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="0dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="94dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/button1" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newList" />
 
     <Button
         android:id="@+id/statistic"
         style="@android:style/Widget.Button"
-        android:layout_width="79dp"
-        android:layout_height="60dp"
-        android:background="@drawable/ic_launcher_foreground"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="96dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginStart="67dp"
+        android:background="@drawable/buttonsqure"
         android:text="Statistics"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="138dp"
-        android:layout_height="130dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="29dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@drawable/button1" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="138dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView4"
-        app:srcCompat="@drawable/button1" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/previousList"
         style="@android:style/Widget.Button"
-        android:layout_width="79dp"
-        android:layout_height="60dp"
-        android:background="@drawable/ic_launcher_foreground"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="58dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="62dp"
+        android:background="@drawable/buttonsqure"
         android:text="Previous List"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+        app:layout_constraintBottom_toTopOf="@+id/statistic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateList" />
 
 
 </android.support.constraint.ConstraintLayout>

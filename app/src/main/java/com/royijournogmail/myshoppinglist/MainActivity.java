@@ -46,53 +46,57 @@ public class MainActivity extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText login = (EditText) findViewById(R.id.loginNameWelcome);
-                EditText password = (EditText) findViewById(R.id.loginPasswordWelcome);
+                try {
+                    EditText login = (EditText) findViewById(R.id.loginNameWelcome);
+                    EditText password = (EditText) findViewById(R.id.loginPasswordWelcome);
 
-                final FirebaseAuth databaseAuth = FirebaseAuth.getInstance();
+                    final FirebaseAuth databaseAuth = FirebaseAuth.getInstance();
 
-                String loginPassword = password.getText().toString();
-                final String loginName = login.getText().toString();
+                    String loginPassword = password.getText().toString();
+                    final String loginName = login.getText().toString();
+                    if(!loginName.equals("") || !loginPassword.equals("")) {
 
-                final ProgressDialog progressDialog = ProgressDialog.show(MainActivity.this, "Please wait...", "Processing...", true);
-                (databaseAuth.signInWithEmailAndPassword(loginName,loginPassword)).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull final Task<AuthResult> task) {
-                        progressDialog.dismiss();
-                        if(task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_LONG).show();
-                            final Intent intent = new Intent(MainActivity.this,HomePage.class);
-                            //save user name
-                            FirebaseDatabase database = FirebaseDatabase.getInstance();
-                            FirebaseAuth userInfo = FirebaseAuth.getInstance();
-                            final String u_id = userInfo.getUid();
-                            final DatabaseReference ref = database.getReference().child(u_id);
-                            ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    Iterable<DataSnapshot> children = dataSnapshot.child("listOfProduct").getChildren();
-                                    String u_name = dataSnapshot.child("name").getValue().toString();
-                                    sedt.putString("User_Name" , u_name);
-                                    sedt.commit();
-                                    startActivity(intent);
+                        final ProgressDialog progressDialog = ProgressDialog.show(MainActivity.this, "Please wait...", "Processing...", true);
+                        (databaseAuth.signInWithEmailAndPassword(loginName, loginPassword)).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull final Task<AuthResult> task) {
+                                progressDialog.dismiss();
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_LONG).show();
+                                    final Intent intent = new Intent(MainActivity.this, HomePage.class);
+                                    //save user name
+                                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                    FirebaseAuth userInfo = FirebaseAuth.getInstance();
+                                    final String u_id = userInfo.getUid();
+                                    final DatabaseReference ref = database.getReference().child(u_id);
+                                    ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(DataSnapshot dataSnapshot) {
+                                            Iterable<DataSnapshot> children = dataSnapshot.child("listOfProduct").getChildren();
+                                            String u_name = dataSnapshot.child("name").getValue().toString();
+                                            sedt.putString("User_Name", u_name);
+                                            sedt.commit();
+                                            startActivity(intent);
+                                        }
+
+                                        @Override
+                                        public void onCancelled(DatabaseError databaseError) {
+
+                                        }
+                                    });
+
+
+                                } else {
+                                    Log.e("ERROR", task.getException().toString());
+                                    Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                                 }
-
-                                @Override
-                                public void onCancelled(DatabaseError databaseError) {
-
-                                }
-                            });
-
-
-
-
-                        }
-                        else {
-                            Log.e("ERROR", task.getException().toString());
-                            Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                        }
+                            }
+                        });
                     }
-                });
+                    else Toast.makeText(MainActivity.this,"Email Or Password are Empty!",Toast.LENGTH_LONG).show();
+                }catch (Exception ex){
+                    Toast.makeText(MainActivity.this,ex.toString(),Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
