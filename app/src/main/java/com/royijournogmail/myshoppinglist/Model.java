@@ -11,6 +11,9 @@ public class Model {
     private String productDesc;
     private String purchased;
 
+
+
+
     public String getPurchased(){return purchased;}
 
     public void setPurchased (String purchased)

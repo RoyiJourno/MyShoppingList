@@ -1,6 +1,7 @@
 package com.royijournogmail.myshoppinglist;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,7 +34,8 @@ public class AddItemToList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item_to_list);
 
-
+        SharedPreferences sp = getSharedPreferences("myshoppinglist", 0);
+        final SharedPreferences.Editor sedt = sp.edit();
 
 
 
@@ -107,7 +109,13 @@ public class AddItemToList extends AppCompatActivity {
 
                             update_user();
  //                           DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
-                            startActivity(new Intent(AddItemToList.this,updateList.class));
+
+
+                            sedt.putString("amount_from" , "memory");
+                            sedt.commit();
+
+                            startActivity(new Intent(AddItemToList.this,listOfProduct.class));
+
                             }
                         @Override
                         public void onCancelled(DatabaseError databaseError) {

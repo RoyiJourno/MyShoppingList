@@ -16,6 +16,12 @@ public class ListForUser {
         this.listOfProduct= new ArrayList<Product>();
     }
 
+    public void updateName(String name)
+    {
+        this.name=name;
+
+    }
+
     public void updateProdToList(Product p){
         this.listOfProduct.add(p);
     }

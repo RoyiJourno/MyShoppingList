@@ -61,6 +61,9 @@ public class ShowShoppingList extends AppCompatActivity {
                     if (indexInt==count)
                     {
                         Iterable<DataSnapshot> children2 = child.child("listOfProduct").getChildren();
+                        String list_name=child.child("name").getValue().toString();
+                        TextView targetText=(TextView) findViewById(R.id.textView) ;
+                        targetText.setText("list: "+list_name );
                         for (DataSnapshot child2 : children2) {
                             String name_p = child2.child("p_name").getValue().toString();
                             String desc = child2.child("p_description").getValue().toString();

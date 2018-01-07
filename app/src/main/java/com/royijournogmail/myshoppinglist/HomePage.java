@@ -1,6 +1,7 @@
 package com.royijournogmail.myshoppinglist;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,9 @@ public class HomePage extends AppCompatActivity {
         TextView homeEmail = (TextView)findViewById(R.id.homeEmail);
         homeEmail.setText(getIntent().getExtras().getString("Email"));
 
+        SharedPreferences sp = getSharedPreferences("myshoppinglist", 0);
+        final SharedPreferences.Editor sedt = sp.edit();
+
         Button newList = (Button)findViewById(R.id.newList);
         Button updateList = (Button)findViewById(R.id.updateList);
         Button previousList = (Button)findViewById(R.id.previousList);
@@ -24,6 +28,8 @@ public class HomePage extends AppCompatActivity {
         newList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sedt.putString("amount_from" , "defult");
+                sedt.commit();
                 Intent intent = new Intent(HomePage.this,listOfProduct.class);
                 startActivity(intent);
             }
