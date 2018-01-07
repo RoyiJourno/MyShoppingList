@@ -30,6 +30,7 @@
         <activity android:name=".updateList" />
         <activity android:name=".previousLists" />
         <activity android:name=".ShowShoppingList" />
+        <activity android:name=".AddItemToUpdateList"></activity>
     </application>
 
 </manifest>

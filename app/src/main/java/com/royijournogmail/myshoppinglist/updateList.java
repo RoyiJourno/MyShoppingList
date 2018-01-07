@@ -87,17 +87,17 @@ public class updateList extends AppCompatActivity {
             }
         });
 
-        (findViewById(R.id.refrash)).setOnClickListener(new View.OnClickListener() {
+        /*(findViewById(R.id.refrash)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 recreate();
             }
-        });
+        });*/
 
         (findViewById(R.id.addItem2)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(updateList.this,AddItemToList.class));
+                startActivity(new Intent(updateList.this,AddItemToUpdateList.class));
             }
         });
     }

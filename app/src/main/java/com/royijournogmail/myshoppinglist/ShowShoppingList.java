@@ -34,7 +34,7 @@ public class ShowShoppingList extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("myshoppinglist", 0);
         final SharedPreferences.Editor sedt = sp.edit();
         final String index=sp.getString("list_id" , null);
-        Toast.makeText(ShowShoppingList.this,"index:"+index,Toast.LENGTH_LONG).show() ;
+
 
         final FirebaseAuth userInfo = FirebaseAuth.getInstance();
         final String u_id = userInfo.getUid();

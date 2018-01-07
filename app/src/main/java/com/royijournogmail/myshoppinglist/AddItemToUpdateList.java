@@ -2,7 +2,6 @@ package com.royijournogmail.myshoppinglist;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,14 +10,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class AddItemToList extends AppCompatActivity {
+public class AddItemToUpdateList extends AppCompatActivity {
     final User[] new_user= new User [1];
     void update_user()
     {
@@ -32,21 +30,11 @@ public class AddItemToList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_item_to_list);
-
-        SharedPreferences sp = getSharedPreferences("myshoppinglist", 0);
-        final SharedPreferences.Editor sedt = sp.edit();
-
-
-
-  //      final String[] u_name = new String[1];
-
+        setContentView(R.layout.activity_add_item_to_update_list);
 
         Button proAdd = findViewById(R.id.proAdd);
 
-
-
-        proAdd.setOnClickListener(new View.OnClickListener() {
+          proAdd.setOnClickListener(new View.OnClickListener() {
             @Override
 
             public void onClick(View v) {
@@ -56,16 +44,16 @@ public class AddItemToList extends AppCompatActivity {
                     final String productName = proName.getText().toString();
                     final String productDesc = proDesc.getText().toString();
 
-                FirebaseAuth userInfo = FirebaseAuth.getInstance();
-                  final String u_id = userInfo.getUid();
+                    FirebaseAuth userInfo = FirebaseAuth.getInstance();
+                    final String u_id = userInfo.getUid();
 
 
 
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                final DatabaseReference ref = database.getReference().child(u_id);
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    final DatabaseReference ref = database.getReference().child(u_id);
 
 
-                // Attach a listener to read the data at our posts reference
+                    // Attach a listener to read the data at our posts reference
 
                     ref.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -77,14 +65,14 @@ public class AddItemToList extends AppCompatActivity {
                             for (DataSnapshot child : children)
                             {
                                 String name = child.child("p_name").getValue().toString();
- //                               Toast.makeText(getApplicationContext(), "Value is: " +name, Toast.LENGTH_SHORT).show();
+                                //                               Toast.makeText(getApplicationContext(), "Value is: " +name, Toast.LENGTH_SHORT).show();
                                 String desc = child.child("p_description").getValue().toString();
-  //                              Toast.makeText(getApplicationContext(), "Value is: " +name, Toast.LENGTH_SHORT).show();
+                                //                              Toast.makeText(getApplicationContext(), "Value is: " +name, Toast.LENGTH_SHORT).show();
                                 Product p= new Product(name, null,desc);
-                               new_user[0].updateProdToUser(p);
+                                new_user[0].updateProdToUser(p);
 
                             }
-                             Product p_new = new Product(productName, null, productDesc); // create product
+                            Product p_new = new Product(productName, null, productDesc); // create product
                             new_user[0].updateProdToUser(p_new);
                             //////////bring lists
                             children = dataSnapshot.child("listOfLists").getChildren();
@@ -110,28 +98,24 @@ public class AddItemToList extends AppCompatActivity {
                             update_user();
                             Toast.makeText(getApplicationContext(),"Product successfully added", Toast.LENGTH_LONG).show();
 
+                            startActivity(new Intent(AddItemToUpdateList.this,updateList.class));
 
-                            sedt.putString("amount_from" , "memory");
-                            sedt.commit();
-
-                            startActivity(new Intent(AddItemToList.this,listOfProduct.class));
-
-                            }
+                        }
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
                             System.out.println("The read failed: " + databaseError.getCode());
                         }
-                });
+                    });
 
                      /*   value.listOfProduct.add(p);
                         DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                         dref.child(u_id).setValue(value);*/
-            }
-            catch (Exception ex) {
-                Toast.makeText(getApplicationContext(),ex.getMessage().toString(), Toast.LENGTH_LONG).show();
-                ex.printStackTrace();
+                }
+                catch (Exception ex) {
+                    Toast.makeText(getApplicationContext(),ex.getMessage().toString(), Toast.LENGTH_LONG).show();
+                    ex.printStackTrace();
 
-            }
+                }
             }
         });
     }

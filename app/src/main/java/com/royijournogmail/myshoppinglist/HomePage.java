@@ -15,10 +15,11 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         TextView homeEmail = (TextView)findViewById(R.id.homeEmail);
-        homeEmail.setText(getIntent().getExtras().getString("Email"));
-
         SharedPreferences sp = getSharedPreferences("myshoppinglist", 0);
         final SharedPreferences.Editor sedt = sp.edit();
+        homeEmail.setText(sp.getString("User_Name" , null));
+
+
 
         Button newList = (Button)findViewById(R.id.newList);
         Button updateList = (Button)findViewById(R.id.updateList);

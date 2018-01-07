@@ -211,6 +211,16 @@ public class listOfProduct extends AppCompatActivity   {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.homeButton).setOnClickListener (new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth databaseAuth = FirebaseAuth.getInstance();
+
+                Intent intent = new Intent(listOfProduct.this,HomePage.class);
+
+                startActivity(intent);
+            }
+        });
     }
 
 

@@ -8,10 +8,10 @@
     tools:layout_editor_absoluteY="25dp">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="50dp">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
 
         <TextView
             android:id="@+id/textView"
@@ -23,22 +23,28 @@
             android:textSize="20dp"
             tools:layout_editor_absoluteX="133dp"
             tools:layout_editor_absoluteY="16dp" />
-    </LinearLayout>
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginLeft="20dp"
-    android:layout_marginTop="10dp">
+
+
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="384dp"
-       android:layout_marginTop="45dp"
-        android:layout_height="551dp"
+        android:layout_width="wrap_content"
+        android:layout_height="500dp"
+        android:layout_weight="7"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="56dp" />
+        tools:layout_editor_absoluteY="56dp"/>
+
+    <RelativeLayout android:id="@+id/RelativeLayout01"
+        android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/homeButton"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="back to home" />
+    </RelativeLayout>
 
 </LinearLayout>
 

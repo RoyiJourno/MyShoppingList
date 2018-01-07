@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -48,15 +49,23 @@ public class previousLists extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Iterable<DataSnapshot> children = dataSnapshot.child("listOfLists").getChildren();
                 ArrayList<String> items = new ArrayList<String>();
-
+                boolean list_empty=true;
                 for (DataSnapshot child : children) {
                     String name = child.child("name").getValue().toString();
                     items.add(name);
+                    list_empty=false;
+                }
+                if(!list_empty)
+                {
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(previousLists.this, android.R.layout.simple_list_item_1, items);
+                     list[0].setAdapter(adapter);
+                }
+                else
+                {
+                    TextView targetText=(TextView) findViewById(R.id.textView) ;
+                    targetText.setText("No lists found");
                 }
 
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(previousLists.this, android.R.layout.simple_list_item_1, items);
-
-                list[0].setAdapter(adapter);
 
 
             }
@@ -83,6 +92,18 @@ public class previousLists extends AppCompatActivity {
 
             }
         });
+
+        findViewById(R.id.homeButton).setOnClickListener (new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth databaseAuth = FirebaseAuth.getInstance();
+
+                Intent intent = new Intent(previousLists.this,HomePage.class);
+
+                startActivity(intent);
+            }
+        });
+
 
     }
 }

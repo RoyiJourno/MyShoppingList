@@ -5,17 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.royijournogmail.myshoppinglist.previousLists">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
 
-    <ListView
-        android:id="@+id/lv"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
+            android:text="your lists: "
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="133dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+
+        <ListView
+            android:id="@+id/lv"
+            android:layout_width="wrap_content"
+            android:layout_height="500dp"
+            android:layout_weight="7"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="56dp" />
+
+
+        <RelativeLayout android:id="@+id/RelativeLayout01"
+            android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/homeButton"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="back to home" />
+        </RelativeLayout>
+
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

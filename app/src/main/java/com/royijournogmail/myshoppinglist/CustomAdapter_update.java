@@ -115,6 +115,9 @@ public class CustomAdapter_update  extends BaseAdapter {
                             DatabaseReference userToAddRef = database.getReference(u_id).child("listOfProduct").child(index[0]);
                             userToAddRef.removeValue();
 
+                            //refresh page
+                            context.startActivity(new Intent(context,updateList.class));
+
                         }
 
                     }

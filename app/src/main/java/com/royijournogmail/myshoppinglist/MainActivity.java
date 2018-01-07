@@ -2,6 +2,7 @@ package com.royijournogmail.myshoppinglist;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SharedPreferences sp = getSharedPreferences("myshoppinglist", 0);
+        final SharedPreferences.Editor sedt = sp.edit();
+
         Button signIn = (Button)findViewById(R.id.signIn);
         Button signUp = (Button)findViewById(R.id.signUp);
 
@@ -53,13 +57,35 @@ public class MainActivity extends AppCompatActivity {
                 final ProgressDialog progressDialog = ProgressDialog.show(MainActivity.this, "Please wait...", "Processing...", true);
                 (databaseAuth.signInWithEmailAndPassword(loginName,loginPassword)).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+                    public void onComplete(@NonNull final Task<AuthResult> task) {
                         progressDialog.dismiss();
                         if(task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(MainActivity.this,HomePage.class);
-                            intent.putExtra("Email",databaseAuth.getCurrentUser().getEmail());
-                            startActivity(intent);
+                            final Intent intent = new Intent(MainActivity.this,HomePage.class);
+                            //save user name
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            FirebaseAuth userInfo = FirebaseAuth.getInstance();
+                            final String u_id = userInfo.getUid();
+                            final DatabaseReference ref = database.getReference().child(u_id);
+                            ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    Iterable<DataSnapshot> children = dataSnapshot.child("listOfProduct").getChildren();
+                                    String u_name = dataSnapshot.child("name").getValue().toString();
+                                    sedt.putString("User_Name" , u_name);
+                                    sedt.commit();
+                                    startActivity(intent);
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+
+
+
+
                         }
                         else {
                             Log.e("ERROR", task.getException().toString());
