@@ -52,7 +52,7 @@
         android:layout_marginStart="67dp"
         android:layout_marginTop="56dp"
         android:background="@drawable/buttonsqure"
-        android:text="עדכון רשימת קניות"
+        android:text="עדכון פריטים"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
