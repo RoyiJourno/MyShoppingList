@@ -9,16 +9,21 @@ public class Model {
     private int number;
     private String product;
     private String productDesc;
-    private String purchased;
+    private int purchased;
 
 
 
 
-    public String getPurchased(){return purchased;}
+    public int getPurchased(){return purchased;}
 
-    public void setPurchased (String purchased)
+    public void setPurchased(int p){this.purchased=p;}
+
+    public void updatePurchased ()
     {
-        this.purchased=purchased;
+        if (this.purchased==1)
+            this.purchased=0;
+        else
+            this.purchased=1;
     }
 
     public String getproductDesc() {

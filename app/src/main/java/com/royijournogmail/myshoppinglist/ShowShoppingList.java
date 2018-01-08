@@ -1,5 +1,6 @@
 package com.royijournogmail.myshoppinglist;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -53,40 +54,23 @@ public class ShowShoppingList extends AppCompatActivity {
                 new_user[0] = new User(u_name);
 
                 int indexInt=Integer.parseInt(index);
-                Iterable<DataSnapshot> children = dataSnapshot.child("listOfLists").getChildren();
-                int count=0;
-                //bring user and update list view
-                for (DataSnapshot child : children) {
+                Iterable<DataSnapshot> children = dataSnapshot.child("listOfProduct").getChildren();
+                //bring user products
 
-                    if (indexInt==count)
-                    {
-                        Iterable<DataSnapshot> children2 = child.child("listOfProduct").getChildren();
-                        String list_name=child.child("name").getValue().toString();
-                        TextView targetText=(TextView) findViewById(R.id.textView) ;
-                        targetText.setText("list: "+list_name );
-                        for (DataSnapshot child2 : children2) {
-                            String name_p = child2.child("p_name").getValue().toString();
-                            String desc = child2.child("p_description").getValue().toString();
-                            String amount = child2.child("p_amount").getValue().toString();
-                            String purchased=child2.child("p_purchased").getValue().toString();
-                            Product p = new Product(name_p, null, desc, amount,purchased);
-                            new_user[0].updateProdToUser(p);
-                            ////////////////////listview
-                            prodList.add(p);
-
-                        }
-
-
-                        break;
+                    for (DataSnapshot child2: children) {
+                        String name_p = child2.child("p_name").getValue().toString();
+                        String desc = child2.child("p_description").getValue().toString();
+                        String amount = child2.child("p_amount").getValue().toString();
+                        Product p = new Product(name_p, null, desc, amount);
+                        new_user[0].updateProdToUser(p);
                     }
-                    count++;
-                }
-                //listview
-                modelArrayList = getModel();
-                lv.setAdapter(customAdapter);
+                
 
 
-                //////////bring lists
+
+
+            //////////bring lists
+                int count=0;
                 Iterable<DataSnapshot> children_l = dataSnapshot.child("listOfLists").getChildren();
                 for (DataSnapshot child : children_l) //list of lists
                 {
@@ -98,13 +82,50 @@ public class ShowShoppingList extends AppCompatActivity {
                         String name_p = child2.child("p_name").getValue().toString();
                         String desc = child2.child("p_description").getValue().toString();
                         String amount = child2.child("p_amount").getValue().toString();
-                        String purchased=child2.child("p_purchased").getValue().toString();
+                        int purchased=Integer.valueOf(child2.child("p_purchased").getValue().toString());
                         Product p = new Product(name_p, null, desc, amount,purchased);
                         list_for_user.updateProdToList(p);
-
+                        ////////////////////listview
+                        if (indexInt==count) {
+                            String list_name=child.child("name").getValue().toString();
+                            TextView targetText=(TextView) findViewById(R.id.textView) ;
+                            targetText.setText("list: "+list_name );
+                            prodList.add(p);
+                        }
                     }
                     new_user[0].updateListToUser(list_for_user);
+                    count++;
                 }
+
+                //listview
+
+                modelArrayList = getModel();
+                lv.setAdapter(customAdapter);
+
+
+                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+                    {
+                        int count=0;
+                        for (Product iter:prodList)
+                        {
+                            if (count==position)
+                            {
+                                Toast.makeText(getApplicationContext(), "index: "+index+" pos: "+position, Toast.LENGTH_LONG).show();
+                                new_user[0].listOfLists.get(Integer.valueOf(index)).updatePurchasedInList(position);
+                                //modelArrayList.get(position).updatePurchased();
+                                break;
+                            }
+                            count++;
+                        }
+                        update_user();
+                        recreate();
+
+
+
+                    }
+                });
             }
 
             @Override
@@ -112,6 +133,27 @@ public class ShowShoppingList extends AppCompatActivity {
 
             }
         });
+
+        findViewById(R.id.homeButton).setOnClickListener (new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth databaseAuth = FirebaseAuth.getInstance();
+
+                Intent intent = new Intent(ShowShoppingList.this,HomePage.class);
+
+                startActivity(intent);
+            }
+        });
+    }
+
+
+    public void update_user() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference ref = database.getReference();
+        FirebaseAuth userInfo = FirebaseAuth.getInstance();
+        final String u_id = userInfo.getUid();
+        ref.child(u_id).setValue(new_user[0]);
+
     }
 
     private ArrayList<Model> getModel(){
@@ -128,4 +170,7 @@ public class ShowShoppingList extends AppCompatActivity {
         }
         return list;
     }
+
+
+
 }

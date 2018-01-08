@@ -25,6 +25,13 @@ public class ListForUser {
     public void updateProdToList(Product p){
         this.listOfProduct.add(p);
     }
+
+
+
+    public void updatePurchasedInList(int index)
+    {
+        listOfProduct.get(index).updatePurchased();
+    }
 }
 
 

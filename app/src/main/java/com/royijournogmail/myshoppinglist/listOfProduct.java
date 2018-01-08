@@ -106,7 +106,7 @@ public class listOfProduct extends AppCompatActivity   {
                         String name_p = child2.child("p_name").getValue().toString();
                         String desc = child2.child("p_description").getValue().toString();
                         String amount = child2.child("p_amount").getValue().toString();
-                        String purchased=child2.child("p_purchased").getValue().toString();
+                        int purchased=Integer.valueOf(child2.child("p_purchased").getValue().toString());
                         Product p = new Product(name_p, null, desc, amount,purchased);
                         list_for_user.updateProdToList(p);
 
