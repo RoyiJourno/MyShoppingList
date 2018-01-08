@@ -52,7 +52,7 @@ public class SignUp extends AppCompatActivity {
                                 FirebaseAuth userInfo = FirebaseAuth.getInstance();
                                 String u_id = userInfo.getUid();
                                 User userInfoermation = new User(fName);
-
+//tida
                                 Product p = new Product("tomato", null, "Choose the most beautiful"); // create product
                                 userInfoermation.listOfProduct.add(p);
                                 p = new Product("Cucumbers", null, " "); // create product
