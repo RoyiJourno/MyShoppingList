@@ -5,6 +5,7 @@ package com.royijournogmail.myshoppinglist;
  */
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.text.style.BackgroundColorSpan;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -70,7 +72,8 @@ public class CustomAdapter_shopping  extends BaseAdapter {
             holder.tvProduct = (TextView) convertView.findViewById(R.id.animal);
             holder.tvnumber = (TextView) convertView.findViewById(R.id.number);
             holder.tvDesc = (TextView) convertView.findViewById(R.id.desc);
-            //holder.takeIt = (Button) convertView.findViewById(R.id.takeIt);
+            holder.img=(ImageView) convertView.findViewById(R.id.imageicon);
+
 
             convertView.setTag(holder);
         }else {
@@ -83,21 +86,13 @@ public class CustomAdapter_shopping  extends BaseAdapter {
         holder.tvDesc.setText(ShowShoppingList.modelArrayList.get(position).getproductDesc());
 
 
-       /* //mark selected item in current list.
-        holder.takeIt.setTag(R.integer.btn_plus_view,convertView);
-        holder.takeIt.setTag(R.integer.btn_plus_pos,position);
-        holder.takeIt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-
-            }
-        });*/
 
         if (ShowShoppingList.modelArrayList.get(position).getPurchased()==1)
         {
             convertView.setBackgroundColor(Color.parseColor("#9fe7ff"));
+            holder.img.setImageResource(R.drawable.carticon);
+
+
         }
 
 
@@ -109,7 +104,7 @@ public class CustomAdapter_shopping  extends BaseAdapter {
 
         private TextView tvProduct, tvnumber;
         private  TextView tvDesc;
-     //   private Button takeIt;
+        private ImageView img;
 
     }
 

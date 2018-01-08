@@ -64,7 +64,7 @@ public class ShowShoppingList extends AppCompatActivity {
                         Product p = new Product(name_p, null, desc, amount);
                         new_user[0].updateProdToUser(p);
                     }
-                
+
 
 
 
@@ -142,6 +142,20 @@ public class ShowShoppingList extends AppCompatActivity {
                 Intent intent = new Intent(ShowShoppingList.this,HomePage.class);
 
                 startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.sendButton).setOnClickListener (new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth databaseAuth = FirebaseAuth.getInstance();
+
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+                sendIntent.setType("text/plain");
+                sendIntent.setPackage("com.whatsapp");
+                startActivity(sendIntent);
             }
         });
     }
