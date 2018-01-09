@@ -17,8 +17,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="product"
+            android:textColor="@color/proName"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#000"
+            android:textStyle="bold"
             android:textSize="20sp" />
 
         <TextView
@@ -46,7 +47,7 @@
             android:layout_marginLeft="20dp"
             android:text="description"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#000"
+            android:textColor="@color/proDesc"
             android:textSize="20sp" />
 
 
@@ -61,16 +62,18 @@
         android:orientation="horizontal">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
             android:id="@+id/plus"
             android:layout_marginLeft="20dp"
             android:text="Plus"
+            android:background="@drawable/buttonsqure"
             android:textColor="#000" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:background="@drawable/buttonsqure"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
             android:id="@+id/minus"
             android:text="Minus"
             android:textColor="#000" />

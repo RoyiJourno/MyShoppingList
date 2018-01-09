@@ -20,6 +20,8 @@
             android:layout_marginTop="10dp"
             android:text="your lists: "
             android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
             tools:layout_editor_absoluteX="133dp"
             tools:layout_editor_absoluteY="16dp" />
 
@@ -37,9 +39,10 @@
             android:layout_width="fill_parent" android:layout_height="wrap_content">
             <Button
                 android:id="@+id/homeButton"
+                android:background="@drawable/buttonsqure"
                 android:layout_centerInParent="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
                 android:layout_weight="1"
                 android:text="back to home" />
         </RelativeLayout>

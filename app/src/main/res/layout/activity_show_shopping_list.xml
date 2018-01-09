@@ -8,10 +8,13 @@
     tools:layout_editor_absoluteY="25dp">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FFFFFF"
         android:orientation="vertical"
-        android:weightSum="10">
+        tools:layout_editor_absoluteX="187dp"
+        tools:layout_editor_absoluteY="16dp">
 
         <TextView
             android:id="@+id/textView"
@@ -19,49 +22,58 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
             android:text="name of list"
             android:textSize="20dp"
             tools:layout_editor_absoluteX="133dp"
             tools:layout_editor_absoluteY="16dp" />
 
 
-
-
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="wrap_content"
-        android:layout_height="500dp"
-        android:layout_weight="7"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="56dp"/>
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="wrap_content"
+            android:layout_height="310dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/space"
+            android:layout_weight="9"
+            android:background="#FFFFFF"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="56dp" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_gravity="center"
-            >
-        <Button
-            android:id="@+id/homeButton"
-            android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="back to home" />
-
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="bottom"
+            android:background="#FFFFFF"
+            android:weightSum="6">
 
             <Button
-            android:id="@+id/sendButton"
-            android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="send to whatsapp" />
+                android:id="@+id/homeButton"
+                android:layout_width="403dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="22dp"
+                android:layout_marginStart="40dp"
+                android:layout_weight="10"
+                android:background="@drawable/buttonsqure"
+                android:text="back to home"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="488dp" />
+
+            <ImageButton
+                android:id="@+id/sendButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@mipmap/whatsappicon_round" />
+
         </LinearLayout>
 
 
     </LinearLayout>
-
 
 
 </android.support.constraint.ConstraintLayout>

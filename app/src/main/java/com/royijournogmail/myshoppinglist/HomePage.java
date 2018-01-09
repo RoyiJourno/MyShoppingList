@@ -24,7 +24,6 @@ public class HomePage extends AppCompatActivity {
         Button newList = (Button)findViewById(R.id.newList);
         Button updateList = (Button)findViewById(R.id.updateList);
         Button previousList = (Button)findViewById(R.id.previousList);
-        Button statistic = (Button)findViewById(R.id.statistic);
 
         newList.setOnClickListener(new View.OnClickListener() {
             @Override

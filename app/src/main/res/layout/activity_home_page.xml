@@ -13,7 +13,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Welcome:"
+
+
+        android:textColor="@color/colorPrimary"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/homeEmail"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -24,7 +28,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
+        android:textColor="@color/colorPrimary"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/homeWelcom"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,60 +41,45 @@
         android:layout_height="50dp"
         android:layout_marginEnd="67dp"
         android:layout_marginStart="67dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="117dp"
         android:background="@drawable/buttonsqure"
         android:text="רשימת קניות חדשה"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeWelcom" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/updateList"
         style="@android:style/Widget.Button"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="160dp"
         android:layout_marginEnd="67dp"
         android:layout_marginStart="67dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="160dp"
         android:background="@drawable/buttonsqure"
         android:text="עדכון פריטים"
         android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/previousList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newList" />
-
-    <Button
-        android:id="@+id/statistic"
-        style="@android:style/Widget.Button"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="96dp"
-        android:layout_marginEnd="67dp"
-        android:layout_marginStart="67dp"
-        android:background="@drawable/buttonsqure"
-        android:text="Statistics"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/newList" />
 
     <Button
         android:id="@+id/previousList"
         style="@android:style/Widget.Button"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="58dp"
+        android:layout_marginBottom="80dp"
         android:layout_marginEnd="67dp"
         android:layout_marginStart="67dp"
-        android:layout_marginTop="62dp"
         android:background="@drawable/buttonsqure"
-        android:text="Previous List"
+        android:text="רשימת קניות"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/statistic"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updateList" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

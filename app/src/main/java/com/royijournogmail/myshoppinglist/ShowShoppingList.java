@@ -115,15 +115,13 @@ public class ShowShoppingList extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "index: "+index+" pos: "+position, Toast.LENGTH_LONG).show();
                                 new_user[0].listOfLists.get(Integer.valueOf(index)).updatePurchasedInList(position);
                                 //modelArrayList.get(position).updatePurchased();
+
                                 break;
                             }
                             count++;
                         }
                         update_user();
                         recreate();
-
-
-
                     }
                 });
             }
@@ -149,10 +147,18 @@ public class ShowShoppingList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth databaseAuth = FirebaseAuth.getInstance();
+                String listToSend="";
 
+                int size = new_user[0].listOfLists.get(Integer.valueOf(index)).listOfProduct.size();
+
+                for(int i=0;i<size;i++){
+                    if(new_user[0].listOfLists.get(Integer.valueOf(index)).listOfProduct.get(i).p_purchased==0){
+                        listToSend += new_user[0].listOfLists.get(Integer.valueOf(index)).listOfProduct.get(i).p_name+", ";
+                    }
+                }
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+                sendIntent.putExtra(Intent.EXTRA_TEXT, listToSend);
                 sendIntent.setType("text/plain");
                 sendIntent.setPackage("com.whatsapp");
                 startActivity(sendIntent);

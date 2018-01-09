@@ -24,8 +24,9 @@
     <Button
         android:id="@+id/addItem2"
         style="@android:style/Widget.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:background="@drawable/buttonsqure"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="7dp"
         android:layout_marginStart="37dp"
         android:text="Add Item"
