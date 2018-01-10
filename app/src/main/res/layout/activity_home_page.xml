@@ -1,85 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.royijournogmail.myshoppinglist.HomePage"
-    tools:layout_editor_absoluteY="25dp">
+    tools:layout_editor_absoluteY="25dp"
 
-    <TextView
-        android:id="@+id/homeWelcom"
+    android:orientation="vertical"
+    android:weightSum="20">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal"
+            android:layout_marginStart="60dp"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/homeWelcom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome"
+                android:textColor="#b73946"
+                android:textSize="30sp"
+                android:textStyle="bold"
+               />
+
+            <TextView
+                android:id="@+id/homeEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textview"
+                android:layout_marginStart="5dp"
+                android:textColor="#b73946"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="190dp"
+                tools:layout_editor_absoluteY="48dp" />
+        </LinearLayout>
+
+
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Welcome:"
+        android:orientation="vertical"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="30dp"
+       android:weightSum="10">
 
-
-        android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/homeEmail"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/homeEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/homeWelcom"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+
         android:id="@+id/newList"
         style="@android:style/Widget.Button"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="67dp"
-        android:layout_marginStart="67dp"
-        android:layout_marginTop="117dp"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+
         android:background="@drawable/buttonsqure"
-        android:text="רשימת קניות חדשה"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/new_shopping_list"
+        android:textSize="20sp"
+   />
 
     <Button
         android:id="@+id/updateList"
         style="@android:style/Widget.Button"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="160dp"
-        android:layout_marginEnd="67dp"
-        android:layout_marginStart="67dp"
-        android:layout_marginTop="160dp"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+
         android:background="@drawable/buttonsqure"
-        android:text="עדכון פריטים"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/previousList"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/newList" />
+        android:text="@string/update_items"
+        android:textSize="20sp"
+      />
 
     <Button
         android:id="@+id/previousList"
         style="@android:style/Widget.Button"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="80dp"
-        android:layout_marginEnd="67dp"
-        android:layout_marginStart="67dp"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+
         android:background="@drawable/buttonsqure"
-        android:text="רשימת קניות"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="@string/shopping_lists"
+        android:textSize="20sp"
+    />
 
+    </LinearLayout>
+    </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>

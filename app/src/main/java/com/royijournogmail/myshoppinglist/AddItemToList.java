@@ -134,6 +134,18 @@ public class AddItemToList extends AppCompatActivity {
             }
             }
         });
+
+        findViewById(R.id.homeButton).setOnClickListener (new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth databaseAuth = FirebaseAuth.getInstance();
+
+                Intent intent = new Intent(AddItemToList.this,HomePage.class);
+
+                startActivity(intent);
+            }
+        });
+
     }
 }
 

@@ -11,4 +11,44 @@
     <string name="amount">Amount:</string>
     <string name="amountoftheproduct">Amount Of The Product</string>
     <string name="title_activity_list_of_product">listOfProduct</string>
+    <string name="sign_in">Sign In</string>
+    <string name="not_sign_yet_sign_up_now">Not sign yet? Sign Up Now!!</string>
+    <string name="enter_your_email">Enter Your Email</string>
+    <string name="welcome">Welcome</string>
+    <string name="email_address">Email Address</string>
+    <string name="login_password">Login Password</string>
+    <string name="enter_your_password">Enter Your Password</string>
+    <string name="welcome_to">Welcome To</string>
+    <string name="login_email">Login Email</string>
+    <string name="password">Password</string>
+    <string name="enter_password_here">Enter Password Here</string>
+    <string name="re_enter_password">Re-Enter Password</string>
+    <string name="enter_pasword_here">Enter Pasword Here</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="enter_your_email_here">Enter Your Email Here</string>
+    <string name="full_name">Full Name</string>
+    <string name="enter_your_full_name_here">Enter Your Full Name Here</string>
+    <string name="todo">TODO</string>
+    <string name="update_item_list">Update item list</string>
+    <string name="shopping_lists">Shopping lists</string>
+    <string name="new_shopping_list">New shopping list</string>
+    <string name="update_items">Update items</string>
+    <string name="textview">TextView</string>
+    <string name="your_products">your products</string>
+    <string name="add_item">Add Item</string>
+    <string name="create_new_list">create new list</string>
+    <string name="back_to_home">back to home</string>
+    <string name="_1">1</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="product">product</string>
+    <string name="description1">description</string>
+    <string name="_1_">1</string>
+    <string name="add_item2">Add Item</string>
+    <string name="delete">delete</string>
+
+    <string name="name_of_list">name of list</string>
+    <string name="what_s_left_whatsapp">What\'s left-whatsapp</string>
+
+
 </resources>

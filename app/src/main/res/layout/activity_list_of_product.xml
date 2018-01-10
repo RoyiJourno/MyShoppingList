@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="10">
+        android:weightSum="25">
 
         <TextView
             android:id="@+id/textView"
@@ -20,8 +20,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginTop="10dp"
-            android:text="your products"
+            android:text="@string/your_products"
             android:textSize="20sp"
+            android:layout_weight="1"
             tools:layout_editor_absoluteX="133dp"
             tools:layout_editor_absoluteY="16dp" />
 
@@ -29,45 +30,45 @@
         <ListView
             android:id="@+id/lv"
             android:layout_width="wrap_content"
-            android:layout_height="500dp"
-            android:layout_weight="7"
+            android:layout_height="0dp"
+            android:layout_weight="24"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="56dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_gravity="center"
             >
 
             <Button
                 android:id="@+id/addItem"
-                android:layout_alignParentLeft="true"
-                android:background="@drawable/buttonsqure"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
+                android:background="@android:color/holo_orange_light"
                 android:layout_weight="1"
-                android:text="Add Item"
-                />
+                style="?android:attr/buttonBarStyle"
+                android:text="@string/add_item" />
 
             <Button
                 android:id="@+id/createList"
-                android:layout_centerInParent="true"
-                android:background="@drawable/buttonsqure"
+                android:background="@android:color/holo_orange_light"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
+                style="?android:attr/buttonBarStyle"
+                android:layout_marginStart="3dp"
                 android:layout_weight="1"
-                android:text="create new list"
+                android:text="@string/create_new_list"
                 />
             <Button
                 android:id="@+id/homeButton"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/buttonsqure"
+                android:background="@android:color/holo_orange_light"
                 android:layout_width="120dp"
                 android:layout_height="50dp"
+                android:layout_marginStart="3dp"
+                style="?android:attr/buttonBarStyle"
                 android:layout_weight="1"
-                android:text="back to home" />
+                android:text="@string/back_to_home" />
         </LinearLayout>
 
 

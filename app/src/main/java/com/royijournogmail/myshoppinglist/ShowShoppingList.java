@@ -112,8 +112,12 @@ public class ShowShoppingList extends AppCompatActivity {
                         {
                             if (count==position)
                             {
-                                Toast.makeText(getApplicationContext(), "index: "+index+" pos: "+position, Toast.LENGTH_LONG).show();
                                 new_user[0].listOfLists.get(Integer.valueOf(index)).updatePurchasedInList(position);
+                                if ( new_user[0].listOfLists.get(Integer.valueOf(index)).getPurchasedInList(position)==1)
+                                {
+                                    Toast.makeText(getApplicationContext(), "you bought "+iter.p_name, Toast.LENGTH_LONG).show();
+                                }
+
                                 //modelArrayList.get(position).updatePurchased();
 
                                 break;
@@ -147,13 +151,21 @@ public class ShowShoppingList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth databaseAuth = FirebaseAuth.getInstance();
-                String listToSend="";
+                String listToSend="Darling, please buy:\n";
 
                 int size = new_user[0].listOfLists.get(Integer.valueOf(index)).listOfProduct.size();
-
+                int j=0;
                 for(int i=0;i<size;i++){
+
                     if(new_user[0].listOfLists.get(Integer.valueOf(index)).listOfProduct.get(i).p_purchased==0){
-                        listToSend += new_user[0].listOfLists.get(Integer.valueOf(index)).listOfProduct.get(i).p_name+", ";
+                        j++;
+                        Product p= new_user[0].listOfLists.get(Integer.valueOf(index)).listOfProduct.get(i);
+                        listToSend += j+") "+ p.p_amount+" "+p.p_name;
+                        if (!p.p_description.equals(""))
+                        {
+                            listToSend +="- "+p.p_description;
+                        }
+                        listToSend +="\n";
                     }
                 }
                 Intent sendIntent = new Intent();

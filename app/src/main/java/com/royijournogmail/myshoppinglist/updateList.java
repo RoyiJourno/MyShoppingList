@@ -87,6 +87,18 @@ public class updateList extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.homeButton).setOnClickListener (new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth databaseAuth = FirebaseAuth.getInstance();
+
+                Intent intent = new Intent(updateList.this,HomePage.class);
+
+                startActivity(intent);
+            }
+        });
+
+
         /*(findViewById(R.id.refrash)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

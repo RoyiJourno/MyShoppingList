@@ -118,6 +118,18 @@ public class AddItemToUpdateList extends AppCompatActivity {
                 }
             }
         });
+
+        findViewById(R.id.homeButton).setOnClickListener (new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth databaseAuth = FirebaseAuth.getInstance();
+
+                Intent intent = new Intent(AddItemToUpdateList.this,HomePage.class);
+
+                startActivity(intent);
+            }
+        });
+
     }
 }
 
