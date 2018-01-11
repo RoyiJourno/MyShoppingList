@@ -27,8 +27,9 @@
             android:background="@drawable/buttonsqure"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="50dp"
-            android:text="delete"
+
+            android:layout_marginStart="90dp"
+            android:text="@string/delete"
             android:textColor="#000" />
 
 

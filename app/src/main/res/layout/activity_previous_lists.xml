@@ -28,7 +28,7 @@
 
         <ListView
             android:id="@+id/lv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="500dp"
             android:layout_weight="7"
             tools:layout_editor_absoluteX="0dp"
@@ -39,12 +39,13 @@
             android:layout_width="fill_parent" android:layout_height="wrap_content">
             <Button
                 android:id="@+id/homeButton"
-                android:background="@drawable/buttonsqure"
+                android:background="@android:color/holo_orange_light"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:layout_centerInParent="true"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:text="back to home" />
+                android:text="@string/back_to_home" />
         </RelativeLayout>
 
     </LinearLayout>

@@ -6,32 +6,46 @@
     android:layout_height="match_parent"
     tools:context="com.royijournogmail.myshoppinglist.updateList"
     tools:layout_editor_absoluteY="25dp">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="25">
 
     <ListView
         android:id="@+id/lv"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/addItem2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_weight="25"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="56dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        >
 
     <Button
         android:id="@+id/addItem2"
-        style="@android:style/Widget.Button"
-        android:background="@drawable/buttonsqure"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="7dp"
-        android:layout_marginStart="37dp"
-        android:text="Add Item"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:background="@android:color/holo_orange_light"
+        android:layout_weight="1"
+        style="?android:attr/buttonBarStyle"
+        android:text="@string/add_item2"
+        />
 
+        <Button
+            android:id="@+id/homeButton"
+            android:text="@string/back_to_home"
+            android:layout_width="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_height="50dp"
+            android:background="@android:color/holo_orange_light"
+            android:layout_weight="1"
+            style="?android:attr/buttonBarStyle"  />
 
+    </LinearLayout>
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

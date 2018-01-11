@@ -9,23 +9,25 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="187dp"
-        tools:layout_editor_absoluteY="16dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="10dp"
+            android:text="@string/name_of_list"
             android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:text="name of list"
-            android:textSize="20dp"
             tools:layout_editor_absoluteX="133dp"
             tools:layout_editor_absoluteY="16dp" />
 
@@ -33,42 +35,40 @@
         <ListView
             android:id="@+id/listView"
             android:layout_width="wrap_content"
-            android:layout_height="310dp"
-            android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@+id/space"
+            android:layout_height="0dp"
             android:layout_weight="9"
             android:background="#FFFFFF"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="56dp" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_gravity="bottom"
-            android:background="#FFFFFF"
-            android:weightSum="6">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
 
             <Button
                 android:id="@+id/homeButton"
-                android:layout_width="403dp"
-                android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="22dp"
-                android:layout_marginStart="40dp"
-                android:layout_weight="10"
-                android:background="@drawable/buttonsqure"
-                android:text="back to home"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="488dp" />
+                android:background="@android:color/holo_orange_light"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:layout_centerInParent="true"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="@string/back_to_home"
+        />
 
-            <ImageButton
+            <Button
                 android:id="@+id/sendButton"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="#FFFFFF"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@mipmap/whatsappicon_round" />
+                android:background="@android:color/holo_orange_light"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:layout_centerInParent="true"
+                android:layout_width="150dp"
+                android:layout_marginStart="10dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="@string/what_s_left_whatsapp"
+                />
+
 
         </LinearLayout>
 

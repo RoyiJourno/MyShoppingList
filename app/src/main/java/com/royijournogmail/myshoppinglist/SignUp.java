@@ -53,12 +53,96 @@ public class SignUp extends AppCompatActivity {
                                 String u_id = userInfo.getUid();
                                 User userInfoermation = new User(fName);
 //tida
-                                Product p = new Product("tomato", null, "Choose the most beautiful"); // create product
+                                Product p = new Product("Tomato", null, "Choose the most beautiful"); // create product
                                 userInfoermation.listOfProduct.add(p);
-                                p = new Product("Cucumbers", null, " "); // create product
+                                p = new Product("Cucumbers", null, ""); // create product
                                 userInfoermation.listOfProduct.add(p);
-                                p = new Product("milk", null, "Date is the farthest"); // create product
+
+                                p = new Product("Apple", null, "The most beautiful"); // create product
                                 userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("Bananas", null, "The most beautiful"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("lemon", null, ""); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("White onion", null, "The most beautiful"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("purple Onion", null, "The most beautiful"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("Green onions", null, "Check the freshness"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("Carrot", null, "Check the freshness"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("garlic", null, "Check the freshness"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("Lettuce", null, "Check the freshness"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("sweet potato", null, "Check the freshness"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+
+                                p = new Product("Milk", null, "Date is the farthest"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("Cottage", null, "Date is the farthest"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("Cream cheese", null, "Date is the farthest"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("Yellow cheese", null, "Date is the farthest"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("Bulgarian cheese", null, "Date is the farthest"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("Yogurt", null, "Date is the farthest"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("Pita bread", null, ""); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("Pasta", null, "Search for an offer"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("Rice", null, "Search for an offer"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("Flakes", null, "Search for an offer"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("Energy bars", null, "Search for an offer"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("Flour", null, "Search for an offer"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("mineral water", null, "Large bottles"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("Olive oil", null, ""); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+
+                                p = new Product("Bleach", null, ""); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+                                p = new Product("Soap", null, ""); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+
+                                p = new Product("Hair conditioner", null, "Company: Pantene"); // create product
+                                userInfoermation.listOfProduct.add(p);
+
+
 
                                 DatabaseReference dref = FirebaseDatabase.getInstance().getReference();
                                 dref.child(u_id).setValue(userInfoermation);

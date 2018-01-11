@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#70ef5f</color>
-    <color name="proName">#FF1EFF00</color>
-    <color name="proDesc">#FF70EF5F</color>
+    <color name="proName">#36648b</color>
+    <color name="proDesc">#005b96</color>
+    <color name="proAm">#36648b</color>
 </resources>

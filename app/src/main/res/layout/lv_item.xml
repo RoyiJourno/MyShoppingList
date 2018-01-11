@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+       >
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -15,20 +23,40 @@
             android:id="@+id/animal"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="product"
+            android:layout_marginStart="20dp"
+            android:text="@string/product"
             android:textColor="@color/proName"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textStyle="bold"
             android:textSize="20sp" />
 
+        <Button
+            android:id="@+id/plus"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:background="@drawable/buttonsqure"
+            android:text="@string/plus"
+            android:layout_marginEnd="10dp"
+            android:textColor="#000" />
+
+
+
         <TextView
+            android:id="@+id/number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/number"
-            android:layout_marginLeft="20dp"
-            android:text="1"
+            android:text="@string/_1"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/proAm" />
+
+        <Button
+            android:id="@+id/minus"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/buttonsqure"
+            android:text="@string/minus"
             android:textColor="#000" />
 
     </LinearLayout>
@@ -44,8 +72,8 @@
             android:id="@+id/desc"
             android:layout_width="351dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="description"
+            android:layout_marginStart="20dp"
+            android:text="@string/description"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/proDesc"
             android:textSize="20sp" />
@@ -53,29 +81,7 @@
 
 
     </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <Button
-            android:layout_width="70dp"
-            android:layout_height="50dp"
-            android:id="@+id/plus"
-            android:layout_marginLeft="20dp"
-            android:text="Plus"
-            android:background="@drawable/buttonsqure"
-            android:textColor="#000" />
-
-        <Button
-            android:background="@drawable/buttonsqure"
-            android:layout_width="70dp"
-            android:layout_height="50dp"
-            android:id="@+id/minus"
-            android:text="Minus"
-            android:textColor="#000" />
     </LinearLayout>
-</LinearLayout>
+
+
+    </LinearLayout>

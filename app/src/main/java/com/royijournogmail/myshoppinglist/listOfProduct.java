@@ -147,7 +147,7 @@ public class listOfProduct extends AppCompatActivity   {
                         @Override
 
                         public void onClick(DialogInterface dialog, int which) {
-                            name_for_list[0] = input.getText().toString();
+                            name_for_list[0] =  new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new java.util.Date())+ "  "+input.getText().toString();
                             list_for_user.updateName(name_for_list[0]);
 
                             new_user[0].updateListToUser(list_for_user);
