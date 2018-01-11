@@ -6,4 +6,6 @@
     <color name="proName">#36648b</color>
     <color name="proDesc">#005b96</color>
     <color name="proAm">#36648b</color>
+    <color name="active_dots">#FFFAFA</color>
+    <color name="inactive_dots">#83878B</color>
 </resources>
