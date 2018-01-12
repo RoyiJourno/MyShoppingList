@@ -21,6 +21,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class previousLists extends AppCompatActivity {
+    ///list view
+    private ListView lv;
+    public static ArrayList<Model_lists> modelArrayList;
+    private CustomAdapter_lists customAdapter;
+    ArrayList<List> ListList=new ArrayList<List>();
+
     final User[] new_user = new User[1];
 
     @Override
@@ -36,8 +42,12 @@ public class previousLists extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("myshoppinglist", 0);
         final SharedPreferences.Editor sedt = sp.edit();
 
-        final ListView[] list = new ListView[1];
-        list[0] = (ListView) findViewById(R.id.lv);
+        //final ListView[] list = new ListView[1];
+        //list[0] = (ListView) findViewById(R.id.lv);
+
+        lv = (ListView) findViewById(R.id.lv);
+
+        customAdapter = new CustomAdapter_lists(this);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference().child(u_id);
@@ -48,17 +58,26 @@ public class previousLists extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Iterable<DataSnapshot> children = dataSnapshot.child("listOfLists").getChildren();
-                ArrayList<String> items = new ArrayList<String>();
+                //ArrayList<String> items = new ArrayList<String>();
                 boolean list_empty=true;
                 for (DataSnapshot child : children) {
                     String name = child.child("name").getValue().toString();
-                    items.add(name);
+                    int buyAll=1;
+                    Iterable<DataSnapshot> children2 = child.child("listOfProduct").getChildren();
+                    for (DataSnapshot child2 : children2) //products
+                    {
+                        int purchased = Integer.valueOf(child2.child("p_purchased").getValue().toString());
+
+                        if (purchased == 0)  buyAll=0;
+                    }
+                    List l=new List(name,buyAll);
+                    ListList.add(l);
                     list_empty=false;
                 }
                 if(!list_empty)
                 {
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(previousLists.this, android.R.layout.simple_list_item_1, items);
-                     list[0].setAdapter(adapter);
+                    modelArrayList = getModel();
+                    lv.setAdapter(customAdapter);
                 }
                 else
                 {
@@ -77,7 +96,11 @@ public class previousLists extends AppCompatActivity {
         });
 
 
-        list[0].setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+
+
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -105,5 +128,18 @@ public class previousLists extends AppCompatActivity {
         });
 
 
+    }
+
+    private ArrayList<Model_lists> getModel(){
+        ArrayList<Model_lists> list = new ArrayList<>();
+
+        for (List iter:ListList)
+        {
+            Model_lists model = new Model_lists();
+            model.setNameList(iter.nameList);
+            model.setBuyAll(iter.buyAll);
+           list.add(model);
+        }
+        return list;
     }
 }

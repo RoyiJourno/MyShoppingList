@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginTop="10dp"
-            android:text="your lists: "
+            android:text="@string/your_lists"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/colorPrimary"
@@ -29,8 +28,8 @@
         <ListView
             android:id="@+id/lv"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:layout_weight="7"
+            android:layout_weight="10"
+            android:layout_height="0dp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="56dp" />
 
@@ -44,7 +43,6 @@
                 android:layout_centerInParent="true"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
                 android:text="@string/back_to_home" />
         </RelativeLayout>
 

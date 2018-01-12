@@ -168,12 +168,21 @@ public class ShowShoppingList extends AppCompatActivity {
                         listToSend +="\n";
                     }
                 }
-                Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, listToSend);
-                sendIntent.setType("text/plain");
-                sendIntent.setPackage("com.whatsapp");
-                startActivity(sendIntent);
+                if (j>0)
+                {
+                    Intent sendIntent = new Intent();
+                    sendIntent.setAction(Intent.ACTION_SEND);
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, listToSend);
+                    sendIntent.setType("text/plain");
+                    sendIntent.setPackage("com.whatsapp");
+                    startActivity(sendIntent);
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "No products left in the list", Toast.LENGTH_LONG).show();
+
+                }
+
             }
         });
     }

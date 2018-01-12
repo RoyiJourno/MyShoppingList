@@ -1,27 +1,15 @@
 package com.royijournogmail.myshoppinglist;
 
-/**
- * Created by ortal on 05/01/2018.
- */
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
-import android.text.style.BackgroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class CustomAdapter_shopping  extends BaseAdapter {
 
@@ -89,7 +77,7 @@ public class CustomAdapter_shopping  extends BaseAdapter {
 
         if (ShowShoppingList.modelArrayList.get(position).getPurchased()==1)
         {
-            convertView.setBackgroundColor(Color.parseColor("#9fe7ff"));
+            convertView.setBackgroundColor(Color.parseColor("#dafbf3"));
             holder.img.setImageResource(R.drawable.carticon);
 
 

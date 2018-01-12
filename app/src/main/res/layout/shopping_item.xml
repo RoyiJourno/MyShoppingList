@@ -26,7 +26,7 @@
             <TextView
                 android:id="@+id/animal"
                 android:layout_width="130dp"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:text="@string/product"
                 android:textAppearance="?android:attr/textAppearanceMedium"
@@ -38,7 +38,7 @@
                 android:id="@+id/number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
+                android:layout_marginStart="90dp"
                 android:text="@string/_1_"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#000" />
