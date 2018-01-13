@@ -85,7 +85,7 @@ public class intro_welcome extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Boolean showGuide = dataSnapshot.getValue(Boolean.class);
-                    if (!showGuide)
+                    if (showGuide)
                         ctv.setChecked(false);
                     else
                         ctv.setChecked(true);
@@ -101,12 +101,12 @@ public class intro_welcome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (ctv.isChecked()) {
-                    ctv.setChecked(false);
-                    myRef.setValue(false);
-                }
-                else {
                     ctv.setChecked(true);
                     myRef.setValue(true);
+                }
+                else {
+                    ctv.setChecked(false);
+                    myRef.setValue(false);
                 }
             }
         });

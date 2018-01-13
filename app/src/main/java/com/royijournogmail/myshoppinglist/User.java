@@ -17,12 +17,8 @@ public class User {
         this.name = name;
         this.listOfProduct = new ArrayList<Product>();
         this.listOfLists= new ArrayList<ListForUser>();
-        this.showUserGuide=false;
+        this.showUserGuide=true;
     }
-   /* public void update_name (String name)
-    {
-        this.name = name;
-    }*/
 
    public void updateProdToUser(Product p){
         this.listOfProduct.add(p);
