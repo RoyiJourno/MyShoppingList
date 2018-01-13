@@ -9,21 +9,21 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="10">
-
+        <RelativeLayout android:id="@+id/RelativeLayout02"
+            android:layout_width="fill_parent" android:layout_height="wrap_content">
         <TextView
             android:id="@+id/textView"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_centerInParent="true"
             android:layout_marginTop="10dp"
             android:text="@string/your_lists"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
+            android:textSize="30sp"
+            android:textStyle="bold|italic"
+            android:textColor="#1c3a53"
             tools:layout_editor_absoluteX="133dp"
             tools:layout_editor_absoluteY="16dp" />
-
+        </RelativeLayout>
 
         <ListView
             android:id="@+id/lv"

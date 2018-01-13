@@ -10,23 +10,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+
         android:weightSum="25">
+        <RelativeLayout android:id="@+id/RelativeLayout02"
+            android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:layout_weight="1"
+            >
 
         <TextView
             android:id="@+id/textView"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_centerInParent="true"
             android:layout_marginTop="10dp"
+            android:textSize="30sp"
             android:text="@string/your_products"
-            android:textSize="20sp"
-            android:layout_weight="1"
+            android:textStyle="bold|italic"
+            android:textColor="#1c3a53"
             tools:layout_editor_absoluteX="133dp"
             tools:layout_editor_absoluteY="16dp" />
 
-
+        </RelativeLayout>
         <ListView
             android:id="@+id/lv"
             android:layout_width="wrap_content"

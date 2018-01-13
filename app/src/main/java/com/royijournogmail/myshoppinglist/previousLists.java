@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -67,7 +68,6 @@ public class previousLists extends AppCompatActivity {
                     for (DataSnapshot child2 : children2) //products
                     {
                         int purchased = Integer.valueOf(child2.child("p_purchased").getValue().toString());
-
                         if (purchased == 0)  buyAll=0;
                     }
                     List l=new List(name,buyAll);
@@ -105,8 +105,9 @@ public class previousLists extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
 
-                sedt.putString("list_id" , String.valueOf(id));
+                sedt.putString("list_id" , String.valueOf(position));
                 sedt.commit();
+               // Toast.makeText(getApplicationContext(), "id: "+id+"pos: "+position, Toast.LENGTH_LONG).show();
 
 
                 Intent intent = new Intent(previousLists.this,ShowShoppingList.class);

@@ -99,12 +99,7 @@ public class updateList extends AppCompatActivity {
         });
 
 
-        /*(findViewById(R.id.refrash)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                recreate();
-            }
-        });*/
+
 
         (findViewById(R.id.addItem2)).setOnClickListener(new View.OnClickListener() {
             @Override

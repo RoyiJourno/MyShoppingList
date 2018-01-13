@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -114,6 +115,7 @@ public class CustomAdapter_update  extends BaseAdapter {
                         if (index[0] != "-1") {
                             DatabaseReference userToAddRef = database.getReference(u_id).child("listOfProduct").child(index[0]);
                             userToAddRef.removeValue();
+                            Toast.makeText(context.getApplicationContext(), "Product successfully deleted!", Toast.LENGTH_LONG).show();
 
                             //refresh page
                             context.startActivity(new Intent(context,updateList.class));

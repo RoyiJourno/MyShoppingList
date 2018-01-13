@@ -10,7 +10,7 @@
 
     <EditText
         android:id="@+id/loginName"
-        android:layout_width="wrap_content"
+        android:layout_width="232dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:ems="10"
@@ -63,7 +63,7 @@
 
     <EditText
         android:id="@+id/loginPasswordWelcome"
-        android:layout_width="wrap_content"
+        android:layout_width="232dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:ems="10"
@@ -84,7 +84,7 @@
 
     <EditText
         android:id="@+id/loginPassword2"
-        android:layout_width="wrap_content"
+        android:layout_width="232dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:ems="10"
@@ -121,7 +121,7 @@
 
     <EditText
         android:id="@+id/fullName"
-        android:layout_width="wrap_content"
+        android:layout_width="232dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/enter_your_full_name_here"

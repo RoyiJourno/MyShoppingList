@@ -50,10 +50,11 @@
     <string name="what_s_left_whatsapp">What\'s left-whatsapp</string>
     <string name="skip">Skip</string>
     <string name="start">Start</string>
-    <string name="your_lists">your lists:</string>
+    <string name="your_lists">your lists</string>
     <string name="g" />
     <string name="user_guide">User Guide</string>
     <string name="check_box_text">dont show again</string>
+    <string name="gg" />
 
 
 </resources>

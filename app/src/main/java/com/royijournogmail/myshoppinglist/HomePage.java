@@ -18,7 +18,7 @@ public class HomePage extends AppCompatActivity {
         TextView homeEmail = findViewById(R.id.homeEmail);
         SharedPreferences sp = getSharedPreferences("myshoppinglist", 0);
         final SharedPreferences.Editor sedt = sp.edit();
-        homeEmail.setText(sp.getString("User_Name" , null));
+        homeEmail.setText("welcome "+sp.getString("User_Name" , null));
 
 
 

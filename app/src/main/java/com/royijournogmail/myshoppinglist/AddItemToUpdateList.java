@@ -25,7 +25,7 @@ public class AddItemToUpdateList extends AppCompatActivity {
         FirebaseAuth userInfo = FirebaseAuth.getInstance();
         final String u_id = userInfo.getUid();
         ref.child(u_id).setValue(new_user[0]);
-        Toast.makeText(getApplicationContext(), "good " , Toast.LENGTH_SHORT).show();
+
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {

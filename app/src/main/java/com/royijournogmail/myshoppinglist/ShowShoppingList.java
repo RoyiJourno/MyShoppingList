@@ -89,7 +89,7 @@ public class ShowShoppingList extends AppCompatActivity {
                         if (indexInt==count) {
                             String list_name=child.child("name").getValue().toString();
                             TextView targetText=(TextView) findViewById(R.id.textView) ;
-                            targetText.setText("list: "+list_name );
+                            targetText.setText(list_name );
                             prodList.add(p);
                         }
                     }
