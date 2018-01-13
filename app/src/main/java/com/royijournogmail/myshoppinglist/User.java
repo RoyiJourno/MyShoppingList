@@ -10,12 +10,14 @@ public class User {
     public  String name;
     ArrayList<Product> listOfProduct;
     ArrayList<ListForUser> listOfLists;
+    public boolean showUserGuide;
 
 
     public User(String name) {
         this.name = name;
         this.listOfProduct = new ArrayList<Product>();
         this.listOfLists= new ArrayList<ListForUser>();
+        this.showUserGuide=true;
     }
    /* public void update_name (String name)
     {

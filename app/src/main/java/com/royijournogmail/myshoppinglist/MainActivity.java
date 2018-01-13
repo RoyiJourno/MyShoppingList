@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
                     EditText password = (EditText) findViewById(R.id.loginPasswordWelcome);
 
                     final FirebaseAuth databaseAuth = FirebaseAuth.getInstance();
+                    String u_id = databaseAuth.getUid();
+                    DatabaseReference myRef = FirebaseDatabase.getInstance().getReference().child(u_id).child("showUserGuide");
 
                     String loginPassword = password.getText().toString();
                     final String loginName = login.getText().toString();
@@ -63,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
                                 progressDialog.dismiss();
                                 if (task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_LONG).show();
-                                    final Intent intent = new Intent(MainActivity.this, HomePage.class);
                                     //save user name
                                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                                     FirebaseAuth userInfo = FirebaseAuth.getInstance();
@@ -76,7 +77,11 @@ public class MainActivity extends AppCompatActivity {
                                             String u_name = dataSnapshot.child("name").getValue().toString();
                                             sedt.putString("User_Name", u_name);
                                             sedt.commit();
-                                            startActivity(intent);
+                                            Boolean showGuide = dataSnapshot.child("showUserGuide").getValue(Boolean.class);
+                                            if(showGuide)
+                                            startActivity(new Intent(MainActivity.this, HomePage.class));
+                                            else
+                                                startActivity(new Intent(MainActivity.this,intro_welcome.class ));
                                         }
 
                                         @Override

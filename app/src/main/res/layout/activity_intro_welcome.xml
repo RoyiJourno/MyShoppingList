@@ -24,28 +24,33 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/bnSkip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:background="@null"
-        android:id="@+id/bnSkip"
         android:layout_marginBottom="8dp"
-        android:textColor="#FFFFFF"
+        android:background="@null"
         android:text="@string/skip"
-        android:textSize="16sp"
-        />
-    <Button
+        android:textColor="#000000"
+        android:layout_toEndOf="@id/viewPager"
+        android:textSize="16sp" />
+
+    <CheckedTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:background="@null"
-        android:id="@+id/bnNext"
-        android:layout_marginBottom="8dp"
-        android:textColor="#FFFFFF"
-        android:text="@string/start"
+        android:checked="false"
+        android:textColor="#000000"
+        android:id="@+id/checkbox1"
+        android:paddingTop="5dp"
         android:textSize="16sp"
+        android:text="@string/check_box_text"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="15dp"
+        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+        android:layout_marginStart="200dp"
+
         />
 
 </RelativeLayout>

@@ -19,12 +19,11 @@
             android:contentDescription="@string/todo" />
 
         <TextView
-            android:layout_weight="4"
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#000000"
-            android:text="@string/textview" />
+            android:layout_weight="4"
+            android:background="#ffd000" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

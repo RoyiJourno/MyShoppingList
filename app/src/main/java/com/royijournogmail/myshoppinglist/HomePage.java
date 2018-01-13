@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class HomePage extends AppCompatActivity {
@@ -14,16 +15,24 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        TextView homeEmail = (TextView)findViewById(R.id.homeEmail);
+        TextView homeEmail = findViewById(R.id.homeEmail);
         SharedPreferences sp = getSharedPreferences("myshoppinglist", 0);
         final SharedPreferences.Editor sedt = sp.edit();
         homeEmail.setText(sp.getString("User_Name" , null));
 
 
 
-        Button newList = (Button)findViewById(R.id.newList);
-        Button updateList = (Button)findViewById(R.id.updateList);
-        Button previousList = (Button)findViewById(R.id.previousList);
+        Button newList = findViewById(R.id.newList);
+        Button updateList = findViewById(R.id.updateList);
+        Button previousList =findViewById(R.id.previousList);
+        ImageButton help_guide = findViewById(R.id.help_1);
+
+        help_guide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomePage.this,intro_welcome.class));
+            }
+        });
 
         newList.setOnClickListener(new View.OnClickListener() {
             @Override
