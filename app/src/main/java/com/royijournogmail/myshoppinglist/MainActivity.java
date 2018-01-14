@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
                     final FirebaseAuth databaseAuth = FirebaseAuth.getInstance();
                     String u_id = databaseAuth.getUid();
-                    //DatabaseReference myRef = FirebaseDatabase.getInstance().getReference().child(u_id).child("showUserGuide");
+                    DatabaseReference myRef = FirebaseDatabase.getInstance().getReference().child(u_id).child("showUserGuide");
 
                     String loginPassword = password.getText().toString();
                     final String loginName = login.getText().toString();
@@ -79,9 +79,9 @@ public class MainActivity extends AppCompatActivity {
                                             sedt.commit();
                                             Boolean showGuide = dataSnapshot.child("showUserGuide").getValue(Boolean.class);
                                             if(showGuide)
-                                                startActivity(new Intent(MainActivity.this,intro_welcome.class ));
+                                            startActivity(new Intent(MainActivity.this, HomePage.class));
                                             else
-                                              startActivity(new Intent(MainActivity.this, HomePage.class));
+                                                startActivity(new Intent(MainActivity.this,intro_welcome.class ));
                                         }
 
                                         @Override
