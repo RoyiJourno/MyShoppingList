@@ -9,9 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="20"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:background="#ffffff"
+        android:weightSum="20">
 
         <ImageView
             android:id="@+id/imageView4"
@@ -19,6 +18,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="16"
             android:contentDescription="@string/todo"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="29dp"
             app:srcCompat="@drawable/listpage" />
 
         <TextView

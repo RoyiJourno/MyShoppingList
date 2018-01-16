@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="#ffffff"
         android:weightSum="20">
 
         <ImageView
@@ -17,6 +18,13 @@
             android:layout_weight="16"
             android:contentDescription="@string/todo"
             app:srcCompat="@drawable/deleteitempage" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:background="#ffd000" />
 
     </LinearLayout>
 
