@@ -91,6 +91,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginStart="115dp"
             app:srcCompat="@mipmap/help1"
+            android:background="#FFFFFF"
             android:id="@+id/help_1"/>
 
     </LinearLayout>

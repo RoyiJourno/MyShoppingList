@@ -9,7 +9,7 @@
         android:icon="@mipmap/first1"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/first1_round"
-        android:supportsRtl="true"
+        android:supportsRtl="false"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".SplashActivity">
             <intent-filter>

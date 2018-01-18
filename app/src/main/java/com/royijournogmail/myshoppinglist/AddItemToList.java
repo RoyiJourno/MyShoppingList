@@ -115,18 +115,15 @@ public class AddItemToList extends AppCompatActivity {
                         }
                     }); //ref
                 }//else
+            }
+        });
 
-                findViewById(R.id.homeButton).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        FirebaseAuth databaseAuth = FirebaseAuth.getInstance();
+        findViewById(R.id.homeButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddItemToList.this, HomePage.class);
 
-                        Intent intent = new Intent(AddItemToList.this, HomePage.class);
-
-                        startActivity(intent);
-                    }
-                });
-
+                startActivity(intent);
             }
         });
 
