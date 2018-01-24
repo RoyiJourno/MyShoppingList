@@ -37,10 +37,11 @@ public class SignUp extends AppCompatActivity {
 
                 final String fName = fullName.getText().toString();
                 String name = loginName.getText().toString();
-                String loginPassword1 = loginPass1.getText().toString();
+
+                 String loginPassword1 = loginPass1.getText().toString();
                 String loginPassword2 = loginPass2.getText().toString();
 
-                if(!fName.equals("") || !name.equals("") || !loginPassword1.equals("") || !loginPassword2.equals("")) {
+                if(!fName.equals("") && !name.equals("") && !loginPassword1.equals("") && !loginPassword2.equals("")) {
 
                     if (loginPassword1.equals(loginPassword2)) {
                         FirebaseAuth databaseAuth = FirebaseAuth.getInstance();
@@ -159,6 +160,7 @@ public class SignUp extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Password don't match, try again!", Toast.LENGTH_LONG).show();
                 }
                 else Toast.makeText(SignUp.this,"One or more field Empty!",Toast.LENGTH_LONG).show();
+
             }
         });
 
