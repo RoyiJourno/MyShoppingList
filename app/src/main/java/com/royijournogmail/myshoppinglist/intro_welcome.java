@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 public class intro_welcome extends AppCompatActivity {
 
     private ViewPager mPager;
-    private int[] layouts = {R.layout.silde_show_1_1,R.layout.slide_show_2,R.layout.slide_show_3,
+    private int[] layouts = {R.layout.silde_show_1_1,R.layout.slide_show_2,
             R.layout.slide_show_4,R.layout.slide_show_5};
     private MpagerAdapter mpagerAdapter;
 
